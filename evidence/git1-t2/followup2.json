@@ -1,0 +1,27 @@
+{
+  "assign_team_admin_company_b": {
+    "status": 200,
+    "body": {
+      "role_id": "9c9d3f54-1370-4236-a97b-db84a333c663",
+      "scope": "team",
+      "scope_id": "cffec612e0324029a14320458dc2be23"
+    }
+  },
+  "ghsa_company_b_team_admin": {
+    "put_status": 403,
+    "put_detail": "Access denied",
+    "name_after": "company-a-agent",
+    "owner_after": "admin@example.com",
+    "team_after": "e601d45dc93549208c97bdbbd1b30985"
+  },
+  "logout_immediate": {
+    "before": 200,
+    "logout": 200,
+    "immediate_status": 200,
+    "immediate_detail": "ok"
+  },
+  "logout_after_35s": {
+    "status": 401,
+    "detail": "Token has been revoked"
+  }
+}

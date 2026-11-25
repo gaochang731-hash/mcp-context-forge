@@ -1,0 +1,9 @@
+Measured on 2026-11-25 11:50 Asia/Singapore (UTC+8), gateway log mcpgateway.auth.
+
+When token_revocations was renamed away, the live /a2a and /rbac routes logged:
+
+Token revocation check failed for JTI [JTI] — denying access (fail-secure): no such table: token_revocations
+
+HTTP status was 401, detail "Token validation failed", for both a token that already had a revocation row and a newly issued token.
+
+This is the mcpgateway.auth request path. It is not the fail-open wording in docs/docs/architecture/security-features.md.
