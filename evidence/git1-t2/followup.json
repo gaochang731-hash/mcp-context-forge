@@ -1,0 +1,53 @@
+{
+  "login_a": 200,
+  "cold_revoke_while_table_present": {
+    "status": 401,
+    "detail": "Token has been revoked"
+  },
+  "logout": {
+    "before": 200,
+    "logout_status": 200,
+    "logout_body": {
+      "message": "Logged out successfully",
+      "revoked_token": "[JTI]"
+    },
+    "after": 200,
+    "after_detail": "['a2a.read', 'admin.dashboard', 'admin.overview', 'gateways.read', 'llm.read', 'metrics:read', 'prompts.read', 'resources.read', 'servers.read', 'servers.use', 'teams.join', 'teams"
+  },
+  "revoked_then_table_hidden": {
+    "renamed": true,
+    "status": 401,
+    "detail": "Token validation failed"
+  },
+  "fresh_token_while_table_hidden": {
+    "status": 401,
+    "detail": "Token validation failed",
+    "perm_count": null,
+    "has_a2a_update": false,
+    "has_a2a_invoke": false
+  },
+  "ghsa_session": {
+    "put_status": 403,
+    "put": {
+      "detail": "Access denied"
+    },
+    "owner_after": "admin@example.com",
+    "name_after": "company-a-agent",
+    "team_after": "e601d45dc93549208c97bdbbd1b30985"
+  },
+  "ghsa_admin_edit": {
+    "status": 403,
+    "body": "{\"detail\":\"Access denied\"}",
+    "owner_after": "admin@example.com",
+    "name_after": "company-a-agent"
+  },
+  "log_hits": [
+    "2026-11-25T03:50:06 - mcpgateway.cache.auth_cache - INFO - AuthCache initialized: enabled=True, user_ttl=60s, revocation_ttl=30s, team_ttl=60s, role_ttl=60s, teams_list_enabled=True, teams_list_ttl=60s",
+    "{\"asctime\": \"2026-11-25T03:50:09\", \"name\": \"mcpgateway.middleware.auth_middleware\", \"levelname\": \"INFO\", \"message\": \"\\u2717 Auth rejected (401): Token has been revoked\", \"@timestamp\": \"2026-11-25T03:50:09.911819Z\", \"hostname\": \"cursor\", \"process_id\": 3935}",
+    "{\"asctime\": \"2026-11-25T03:50:10\", \"name\": \"mcpgateway.services.token_blocklist_service\", \"levelname\": \"INFO\", \"message\": \"Token revoked: jti=[JTI], reason=logout, revoked_by=user-a@company-a.example\", \"security_event\": \"token_revocation\", \"security_severity\": \"medium\", \"jti\": \"[JTI]\", \"reason\": \"logout\", \"revoked_by\": \"user-a@company-a.example\", \"@timestamp\": \"2026-11-25T03:50:10.264584Z\", \"hostname\": \"cursor\", \"process_id\": 3935, \"request_id\": \"85e8f2809c1f412dab6b64fe0d32f761\"}",
+    "{\"asctime\": \"2026-11-25T03:50:10\", \"name\": \"mcpgateway.auth\", \"levelname\": \"WARNING\", \"message\": \"Batched auth query failed, falling back to individual queries: (sqlite3.OperationalError) no such table: token_revocations\\n[SQL: SELECT token_revocations.jti, token_revocations.revoked_at, token_revocations.revoked_by, token_revocations.reason, token_revocations.token_expiry, token_revocations.last_activity \\nFROM token_revocations \\nWHERE token_revocations.jti = ?]\\n[parameters: ('[JTI]',)]\\n(Background on this error at: https://sqlalche.me/e/21/e3q8)\", \"@timestamp\": \"2026-11-25T03:50:10.606205Z\", \"hostname\": \"cursor\", \"process_id\": 3935}",
+    "{\"asctime\": \"2026-11-25T03:50:10\", \"name\": \"mcpgateway.auth\", \"levelname\": \"WARNING\", \"message\": \"Token revocation check failed for JTI [JTI] \\u2014 denying access (fail-secure): (sqlite3.OperationalError) no such table: token_revocations [SQL: SELECT token_revocations.jti, token_revocations.revoked_at, token_revocations.revoked_by, token_revocations.reason, token_revocations.token_expiry, token_revocations.last_activity  FROM token_revocations  WHERE token_revocations.jti = ?] [parameters: ('[JTI]',)] (Background on this error at: https://sqlalche.me/e/21/e3q8)\", \"@timestamp\": \"2026-11-25T03:50:10.609417Z\", \"hostname\": \"cursor\", \"process_id\": 3935}",
+    "{\"asctime\": \"2026-11-25T03:50:10\", \"name\": \"mcpgateway.auth\", \"levelname\": \"WARNING\", \"message\": \"Batched auth query failed, falling back to individual queries: (sqlite3.OperationalError) no such table: token_revocations\\n[SQL: SELECT token_revocations.jti, token_revocations.revoked_at, token_revocations.revoked_by, token_revocations.reason, token_revocations.token_expiry, token_revocations.last_activity \\nFROM token_revocations \\nWHERE token_revocations.jti = ?]\\n[parameters: ('[JTI]',)]\\n(Background on this error at: https://sqlalche.me/e/21/e3q8)\", \"@timestamp\": \"2026-11-25T03:50:10.871044Z\", \"hostname\": \"cursor\", \"process_id\": 3935}",
+    "{\"asctime\": \"2026-11-25T03:50:10\", \"name\": \"mcpgateway.auth\", \"levelname\": \"WARNING\", \"message\": \"Token revocation check failed for JTI [JTI] \\u2014 denying access (fail-secure): (sqlite3.OperationalError) no such table: token_revocations [SQL: SELECT token_revocations.jti, token_revocations.revoked_at, token_revocations.revoked_by, token_revocations.reason, token_revocations.token_expiry, token_revocations.last_activity  FROM token_revocations  WHERE token_revocations.jti = ?] [parameters: ('[JTI]',)] (Background on this error at: https://sqlalche.me/e/21/e3q8)\", \"@timestamp\": \"2026-11-25T03:50:10.871932Z\", \"hostname\": \"cursor\", \"process_id\": 3935}"
+  ]
+}

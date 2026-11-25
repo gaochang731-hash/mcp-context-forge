@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In - ContextForge</title>
+    <!-- Tailwind CSS - Using precompiled CSS for strict CSP compliance -->
+    <link rel="stylesheet" href="/static/css/tailwind.min.css" />
+    <!-- Font Awesome is bundled via Vite (imported in admin_ui/admin.js) -->
+    
+  </head>
+  <body class="h-full bg-gray-50 dark:bg-gray-900 overflow-auto">
+    <!-- Main Split Layout -->
+    <div class="min-h-screen flex">
+      <!-- Left Side - Login Form -->
+      <div
+        class="flex-1 flex flex-col justify-center py-6 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 relative overflow-hidden"
+      >
+        <!-- Subtle background decoration -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-100/30 dark:from-gray-800/50 dark:to-gray-700/30"
+        ></div>
+        <div
+          class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-indigo-200/30 to-purple-200/30 dark:from-indigo-800/30 dark:to-purple-800/30 rounded-full animate-float"
+        ></div>
+        <div
+          class="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-br from-purple-200/30 to-blue-200/30 dark:from-purple-800/30 dark:to-blue-800/30 rounded-full animate-float"
+          style="animation-delay: 2s"
+        ></div>
+
+        <div class="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+          <!-- Login Card -->
+          <div
+            class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl py-6 px-6 shadow-2xl rounded-2xl border border-gray-200/50 dark:border-gray-700/50 animate-slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <!-- Error messages -->
+            <div
+              id="error-message"
+              class="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl text-sm hidden"
+ 
